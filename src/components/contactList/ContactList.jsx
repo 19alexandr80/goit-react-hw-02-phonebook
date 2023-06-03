@@ -1,16 +1,25 @@
+import {
+  ContactsLitsStyled,
+  ContactStyled,
+} from 'components/contactList/ContactListStyled.styled';
+
 export const ContactList = ({ contacts, onDeleteUser }) => {
-  return contacts.map(contact => {
-    return (
-      <div key={contact.id}>
-        <p>
-          {contact.name}: {contact.number}
-        </p>
-        <button type="button" onClick={onDeleteUser} data-id={contact.id}>
-          off
-        </button>
-      </div>
-    );
-  });
+  return (
+    <ContactsLitsStyled>
+      {contacts.map(contact => {
+        return (
+          <ContactStyled key={contact.id}>
+            <p>
+              {contact.name}: {contact.number}
+            </p>
+            <button type="button" onClick={onDeleteUser} data-id={contact.id}>
+              Delete
+            </button>
+          </ContactStyled>
+        );
+      })}
+    </ContactsLitsStyled>
+  );
 };
 export const Filter = ({ filter, onChange }) => {
   return (

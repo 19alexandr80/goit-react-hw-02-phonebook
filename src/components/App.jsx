@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 
 import { FormAddUser } from 'components/formPhoneBook/FormAddUser';
 import { ContactList, Filter } from 'components/contactList/ContactList';
+import { AppStyled } from 'components/AppStyled.styled';
 
 export class App extends React.Component {
   state = {
@@ -39,13 +40,13 @@ export class App extends React.Component {
       return name.includes(this.state.filter);
     });
     return (
-      <div>
+      <AppStyled>
         <h1>Phonebook</h1>
         <FormAddUser addUserPhoneBook={this.addUserPhoneBook} />
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} onChange={this.onChangeFilter} />
         <ContactList contacts={ren} onDeleteUser={this.onDeleteUser} />
-      </div>
+      </AppStyled>
     );
   }
 }
