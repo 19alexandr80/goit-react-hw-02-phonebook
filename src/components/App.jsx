@@ -2,12 +2,28 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 
 import { FormAddUser } from 'components/formPhoneBook/FormAddUser';
-import { ContactList } from 'components/contactList/ContactList';
+import { ContactList, Filter } from 'components/contactList/ContactList';
 
 export class App extends React.Component {
   state = {
     contacts: [],
-    name: '',
+    filter: '',
+  };
+
+  onChangeFilter = e => {
+    this.setState(() => {
+      return { filter: e.target.value };
+    });
+  };
+
+  onDeleteUser = e => {
+    this.setState(({ contacts }) => {
+      return {
+        contacts: contacts.filter(({ id }) => {
+          return id !== e.target.dataset.id;
+        }),
+      };
+    });
   };
 
   addUserPhoneBook = add => {
@@ -18,20 +34,17 @@ export class App extends React.Component {
       return { contacts: [add, ...contacts] };
     });
   };
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log(prevState.contacts === this.state.contacts);
-  //   console.log('prevProps', prevProps);
-  //   console.log('prevState', prevState);
-  // }
-
   render() {
+    const ren = this.state.contacts.filter(({ name }) => {
+      return name.includes(this.state.filter);
+    });
     return (
       <div>
         <h1>Phonebook</h1>
         <FormAddUser addUserPhoneBook={this.addUserPhoneBook} />
         <h2>Contacts</h2>
-        <ContactList contacts={this.state.contacts} />
+        <Filter filter={this.state.filter} onChange={this.onChangeFilter} />
+        <ContactList contacts={ren} onDeleteUser={this.onDeleteUser} />
       </div>
     );
   }
