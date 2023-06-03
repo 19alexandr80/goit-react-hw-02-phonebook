@@ -30,6 +30,10 @@ export class App extends React.Component {
   addUserPhoneBook = add => {
     add.id = nanoid();
     // this.setState({ contacts: [...this.state.contacts, add] });
+    if (this.state.contacts.find(el => el.name === add.name)) {
+      alert(add.name + ' is already in contacts');
+      return;
+    }
 
     this.setState(({ contacts }) => {
       return { contacts: [add, ...contacts] };
