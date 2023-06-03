@@ -44,13 +44,16 @@ export class App extends React.Component {
     const ren = this.state.contacts.filter(({ name }) => {
       return name.includes(this.state.filter);
     });
+    console.log(ren.length);
     return (
       <AppStyled>
         <h1>Phonebook</h1>
         <FormAddUser addUserPhoneBook={this.addUserPhoneBook} />
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} onChange={this.onChangeFilter} />
-        <ContactList contacts={ren} onDeleteUser={this.onDeleteUser} />
+        {ren.length !== 0 && (
+          <ContactList contacts={ren} onDeleteUser={this.onDeleteUser} />
+        )}
       </AppStyled>
     );
   }
