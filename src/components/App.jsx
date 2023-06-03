@@ -44,7 +44,6 @@ export class App extends React.Component {
     const ren = this.state.contacts.filter(({ name }) => {
       return name.includes(this.state.filter);
     });
-    console.log(ren.length);
     return (
       <AppStyled>
         <h1>Phonebook</h1>
