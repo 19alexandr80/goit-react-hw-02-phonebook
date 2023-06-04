@@ -13,7 +13,11 @@ export const ContactList = ({ contacts, onDeleteUser }) => {
             <p>
               {contact.name}: {contact.number}
             </p>
-            <button type="button" onClick={onDeleteUser} data-id={contact.id}>
+            <button
+              type="button"
+              onClick={e => onDeleteUser(e.target.dataset.id)}
+              data-id={contact.id}
+            >
               Delete
             </button>
           </ContactStyled>
@@ -22,25 +26,7 @@ export const ContactList = ({ contacts, onDeleteUser }) => {
     </ContactsLitsStyled>
   );
 };
-export const Filter = ({ filter, onChange }) => {
-  return (
-    <label>
-      Name
-      <input
-        type="text"
-        name="filter"
-        placeholder="Neme Surname"
-        value={filter}
-        onChange={onChange}
-        required
-      />
-    </label>
-  );
-};
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.exact({

@@ -2,7 +2,9 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 
 import { FormAddUser } from 'components/formPhoneBook/FormAddUser';
-import { ContactList, Filter } from 'components/contactList/ContactList';
+import { ContactList } from 'components/contactList/ContactList';
+import { Filter } from 'components/contactList/Filter';
+
 import { AppStyled } from 'components/AppStyled.styled';
 
 export class App extends React.Component {
@@ -17,11 +19,11 @@ export class App extends React.Component {
     });
   };
 
-  onDeleteUser = e => {
+  onDeleteUser = eId => {
     this.setState(({ contacts }) => {
       return {
         contacts: contacts.filter(({ id }) => {
-          return id !== e.target.dataset.id;
+          return id !== eId;
         }),
       };
     });
