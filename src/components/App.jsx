@@ -2,8 +2,9 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 
 import { FormAddUser } from 'components/formPhoneBook/FormAddUser';
-import { ContactList } from 'components/contactList/ContactList';
 import { Filter } from 'components/contactList/Filter';
+import { ContactList } from 'components/contactList/ContactList';
+import { Contact } from 'components/contactList/Contact';
 
 import { AppStyled } from 'components/AppStyled.styled';
 
@@ -53,7 +54,19 @@ export class App extends React.Component {
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} onChange={this.onChangeFilter} />
         {ren.length !== 0 && (
-          <ContactList contacts={ren} onDeleteUser={this.onDeleteUser} />
+          <ContactList>
+            {ren.map(({ id, name, number }) => {
+              return (
+                <Contact
+                  key={id}
+                  id={id}
+                  name={name}
+                  number={number}
+                  onDeleteUser={this.onDeleteUser}
+                />
+              );
+            })}
+          </ContactList>
         )}
       </AppStyled>
     );
