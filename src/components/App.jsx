@@ -61,7 +61,7 @@ export class App extends React.Component {
 
   render() {
     const ren = this.state.contacts.filter(({ name }) => {
-      return name.includes(this.state.filter);
+      return name.toLowerCase().includes(this.state.filter.toLowerCase());
     });
     return (
       <AppStyled>
