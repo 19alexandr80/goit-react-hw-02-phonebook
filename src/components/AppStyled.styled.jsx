@@ -20,7 +20,7 @@ export const AppStyled = styled.div`
     margin-left: 20px;
   }
   button {
-    border: 3px outset;
+    border: 3px outset #3ae2ce;
     padding: 10px;
     font-size: 24px;
     border-radius: 10px;
@@ -28,9 +28,11 @@ export const AppStyled = styled.div`
     cursor: pointer;
     :hover {
       background-color: green;
+      border: 3px inset #3ae2ce;
     }
     :active {
       background-color: red;
+      border: 3px inset #3ae2ce;
     }
   }
   label {

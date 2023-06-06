@@ -9,7 +9,7 @@ export const ContactsLitsStyled = styled.ul`
   gap: 20px;
 `;
 export const ContactStyled = styled.li`
-  padding: 5px;
+  padding: 8px;
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -19,10 +19,10 @@ export const ContactStyled = styled.li`
     margin: 0px;
   }
   button {
-    border: 3px outset;
     padding: 2px;
     font-size: 12px;
-    border-radius: 5px;
+    font-style: italic;
+    border-radius: 10px;
     background-color: cadetblue;
     cursor: pointer;
     :hover {
