@@ -13,11 +13,15 @@ export const AppStyled = styled.div`
     gap: 20px;
   }
   input {
-    border: 3px outset;
+    border: 3px outset #3ae2ce;
     padding: 10px;
     font-size: 24px;
     border-radius: 10px;
     margin-left: 20px;
+    :focus-visible {
+      border: 3px inset #3ae2ce;
+      outline: none;
+    }
   }
   button {
     border: 3px outset #3ae2ce;
