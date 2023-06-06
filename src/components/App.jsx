@@ -43,6 +43,23 @@ export class App extends React.Component {
       return { contacts: [add, ...contacts] };
     });
   };
+
+  componentDidMount() {
+    this.setState(() => {
+      return {
+        contacts: JSON.parse(localStorage.getItem('contacts'))
+          ? JSON.parse(localStorage.getItem('contacts'))
+          : [],
+      };
+    });
+  }
+
+  componentDidUpdate(prevState) {
+    console.log(prevState);
+    const contactsJson = JSON.stringify(this.state.contacts);
+    localStorage.setItem('contacts', contactsJson);
+  }
+
   render() {
     const ren = this.state.contacts.filter(({ name }) => {
       return name.includes(this.state.filter);
