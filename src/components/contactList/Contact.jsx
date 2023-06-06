@@ -1,26 +1,39 @@
 import PropTypes from 'prop-types';
-import { ContactStyled } from 'components/contactList/ContactListStyled.styled';
+import {
+  ContactStyled,
+  ContactsLitsStyled,
+} from 'components/contactList/ContactListStyled.styled';
 
-export const Contact = ({ id, name, number, onDeleteUser }) => {
+export const Contact = ({ ren, onDeleteUser }) => {
   return (
-    <ContactStyled>
-      <p>
-        {name}: {number}
-      </p>
-      <button
-        type="button"
-        onClick={e => onDeleteUser(e.target.dataset.id)}
-        data-id={id}
-      >
-        Delete
-      </button>
-    </ContactStyled>
+    <ContactsLitsStyled>
+      {ren.map(({ id, name, number }) => {
+        return (
+          <ContactStyled key={id}>
+            <p>
+              {name}: {number}
+            </p>
+            <button
+              type="button"
+              onClick={e => onDeleteUser(e.target.dataset.id)}
+              data-id={id}
+            >
+              Delete
+            </button>
+          </ContactStyled>
+        );
+      })}
+    </ContactsLitsStyled>
   );
 };
 
 Contact.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  ren: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   onDeleteUser: PropTypes.func.isRequired,
 };

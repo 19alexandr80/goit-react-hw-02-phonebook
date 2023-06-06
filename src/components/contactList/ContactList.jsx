@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import { ContactsLitsStyled } from 'components/contactList/ContactListStyled.styled';
 
 export const ContactList = ({ children }) => {
-  return <ContactsLitsStyled>{children}</ContactsLitsStyled>;
+  return <div>{children}</div>;
 };
 
 ContactList.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.object.isRequired,
 };

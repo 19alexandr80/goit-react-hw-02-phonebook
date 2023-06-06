@@ -55,17 +55,7 @@ export class App extends React.Component {
         <Filter filter={this.state.filter} onChange={this.onChangeFilter} />
         {ren.length !== 0 && (
           <ContactList>
-            {ren.map(({ id, name, number }) => {
-              return (
-                <Contact
-                  key={id}
-                  id={id}
-                  name={name}
-                  number={number}
-                  onDeleteUser={this.onDeleteUser}
-                />
-              );
-            })}
+            <Contact ren={ren} onDeleteUser={this.onDeleteUser} />
           </ContactList>
         )}
       </AppStyled>
