@@ -19,10 +19,10 @@ export const ContactStyled = styled.li`
     margin: 0px;
   }
   button {
-    padding: 2px;
+    padding: 3px;
     font-size: 12px;
     font-style: italic;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: cadetblue;
     cursor: pointer;
     :hover {
