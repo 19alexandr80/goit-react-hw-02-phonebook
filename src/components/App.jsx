@@ -55,7 +55,6 @@ export class App extends React.Component {
   }
 
   componentDidUpdate(prevState) {
-    console.log(prevState);
     const contactsJson = JSON.stringify(this.state.contacts);
     localStorage.setItem('contacts', contactsJson);
   }
