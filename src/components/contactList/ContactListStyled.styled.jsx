@@ -33,3 +33,7 @@ export const ContactStyled = styled.li`
     }
   }
 `;
+export const TelStyled = styled.span`
+  background-color: #3a9a77;
+  border-radius: 5px;
+`;

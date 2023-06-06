@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import {
   ContactStyled,
   ContactsLitsStyled,
+  TelStyled,
 } from 'components/contactList/ContactListStyled.styled';
 
 export const Contact = ({ ren, onDeleteUser }) => {
@@ -11,7 +12,7 @@ export const Contact = ({ ren, onDeleteUser }) => {
         return (
           <ContactStyled key={id}>
             <p>
-              {name}: {number}
+              {name}: <TelStyled>{number}</TelStyled>
             </p>
             <button
               type="button"
